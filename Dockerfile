@@ -2,13 +2,24 @@ FROM php:5.6-cli
 
 WORKDIR /usr/src/myapp
 
-RUN apt-get update \
-    && apt-get -y install libtidy-dev \
+# Dev Utils
+RUN apt-get update && apt-get install -y \
+	git \
+	vim \
+    curl
+
+# PHP Extensions
+RUN apt-get -y install libtidy-dev \
     && docker-php-ext-install tidy \
 
     && apt-get -y install zlib1g-dev \
     && docker-php-ext-install zip
 
+# Add composer
+RUN curl -sS https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/bin/composer
+
+# xdebug
 RUN pecl install xdebug
 RUN echo 'zend_extension = /usr/local/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so' >> /usr/local/etc/php/php.ini
 RUN touch /usr/local/etc/php/conf.d/xdebug.ini; \
