@@ -1,4 +1,4 @@
-FROM php:5.6-cli
+FROM php:7.2-cli
 
 WORKDIR /usr/src/myapp
 
@@ -6,12 +6,11 @@ WORKDIR /usr/src/myapp
 RUN apt-get update && apt-get install -y \
 	git \
 	vim \
-    curl
+        curl
 
 # PHP Extensions
 RUN apt-get -y install libtidy-dev \
     && docker-php-ext-install tidy \
-
     && apt-get -y install zlib1g-dev \
     && docker-php-ext-install zip
 
