@@ -27,3 +27,6 @@ RUN echo 'zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20170718
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get install -y nodejs
 RUN apt-get install -y build-essential
+
+### Dependency from PhantomJs
+RUN apt-get install -y 
