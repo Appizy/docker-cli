@@ -22,3 +22,8 @@ RUN curl -sS https://getcomposer.org/installer | php \
 RUN pecl install xdebug
 
 RUN echo 'zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20170718/xdebug.so' >> /usr/local/etc/php/php.ini
+
+# Node
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN apt-get install -y nodejs
+RUN apt-get install -y build-essential
