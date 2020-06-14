@@ -29,4 +29,4 @@ RUN apt-get install -y nodejs
 RUN apt-get install -y build-essential
 
 ### Dependency from PhantomJs
-RUN apt-get install -y 
+RUN apt-get install -y libfontconfig
