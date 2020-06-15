@@ -28,5 +28,5 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get install -y nodejs
 RUN apt-get install -y build-essential
 
-### Dependency from PhantomJs
-RUN apt-get install -y libfontconfig
+# Headless unit tests
+RUN apt-get install -y chromium chromium-l10n
